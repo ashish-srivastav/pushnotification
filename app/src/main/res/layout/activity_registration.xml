@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.mta.pushnotification.RegistrationActivity">
+
+
+
+    <Button
+        android:id="@+id/btGcm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="REGISTER TO GCM"/>
+    <EditText
+        android:id="@+id/msg"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="sdss"
+        android:layout_below="@+id/btGcm" />
+
+    <Button
+
+        android:id="@+id/btServer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/msg"
+        android:text="SEND PUSH"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_item"
+        android:layout_below="@+id/btServer"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,44 @@
+package com.mta.pushnotification;
+
+import android.os.AsyncTask;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class MainActivity extends AppCompatActivity {
+
+    private ShareExternalServer mShareExternalServer;
+    private String regId;
+    private AsyncTask<String,String,String> mShareExteAsyncTask;
+
+
+    public static final String REG_ID = "regId";
+
+    protected static final String APP_VERSION = "appversion";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mShareExternalServer = new ShareExternalServer();
+        if (getIntent() != null){
+            regId = getIntent().getStringExtra(REG_ID);
+        }
+
+        mShareExteAsyncTask = new AsyncTask<String, String, String>() {
+
+            @Override
+            protected String doInBackground(String... params) {
+                String result = "";
+                result = mShareExternalServer.shareRegIdWithAppServer(MainActivity.this,result);
+                return result;
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+            }
+        };
+
+        mShareExteAsyncTask.execute();
+    }
+}
